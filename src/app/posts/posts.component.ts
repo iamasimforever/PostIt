@@ -39,7 +39,8 @@ export class PostsComponent implements OnInit, OnDestroy {
       username: this.user.displayName,
       timestamp: new Date().toISOString()
     });
-
+    var audio = new Audio('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-46416/zapsplat_bell_small_ring_close_clean_shop_door_bell_008_50044.mp3?_=4');
+    audio.play();
     this.newProjectName = null;
   }
 

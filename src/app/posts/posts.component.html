@@ -30,8 +30,6 @@
 </mat-form-field>
 
 <!-- List top level -->
-
-
 <div *ngIf="postService.post$ | async as posts" style="max-width: 600px; margin: auto;">
     <mat-card style="max-width: 500px; margin: 5vh auto 0" *ngFor="let post of posts">
     <mat-card-title>
