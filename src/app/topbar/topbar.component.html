@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row style="display: flex; justify-content: space-around;">
+    <span routerLink="/posts" style="cursor: pointer">PostIt</span>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100px;">
+      <mat-icon
+        routerLink="/posts"
+        color="accent"
+        style="cursor: pointer"
+        aria-hidden="false"
+        aria-label="Posts Icon">
+        list_alt
+      </mat-icon>
+
+      <app-menu></app-menu>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>

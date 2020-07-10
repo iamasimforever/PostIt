@@ -1,0 +1,45 @@
+
+<!-- Not Signed In -->
+
+<ng-template #notSignedIn>
+    <mat-card style="text-align: center; display: flex; justify-content: center; align-items: center;">
+        <mat-icon style="cursor: default" color="warn">memory</mat-icon>
+        <span style="width: 20px"></span>
+        <p style="margin: 0"><a (click)="login()" class="signin" >Sign in</a> for the full experience</p>
+    </mat-card>
+</ng-template>
+
+<!-- Add top level -->
+
+<mat-form-field *ngIf="user; else notSignedIn" color="accent" appearance="fill" style="width: 100%; max-width: 500px; display: block; margin: 1em auto;">
+    <mat-label><strong>{{ user.displayName || 'USER' }}</strong> what is on your mind?</mat-label>
+    <input
+        matInput
+        [(ngModel)]="newProjectName"
+        (keyup.enter)="addNewPost()">
+    <mat-icon
+        matSuffix
+        *ngIf="newProjectName?.length > 1"
+        class="add-icon"
+        (click)="addNewPost()">
+        add
+    </mat-icon>
+    <mat-hint *ngIf="newProjectName && newProjectName.length < 2">
+        At least <strong>two</strong> characters
+    </mat-hint>
+</mat-form-field>
+
+<!-- List top level -->
+
+
+<div *ngIf="postService.post$ | async as posts" style="max-width: 600px; margin: auto;">
+    <mat-card style="max-width: 500px; margin: 5vh auto 0" *ngFor="let post of posts">
+    <mat-card-title>
+            {{ post.username }}
+    </mat-card-title>
+    <mat-card-subtitle>{{ post.timestamp | date:'medium'}}</mat-card-subtitle>
+    <mat-card-content>
+        {{ post.post }}
+    </mat-card-content>
+  </mat-card>
+</div>

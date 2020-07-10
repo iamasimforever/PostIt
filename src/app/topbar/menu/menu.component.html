@@ -1,0 +1,13 @@
+<button mat-icon-button [matMenuTriggerFor]="user ? loggedInMenu : loggedOutMenu">
+  <mat-icon *ngIf="menuIsOpen" color="accent">line_style</mat-icon>
+  <mat-icon *ngIf="!menuIsOpen" color="accent">line_weight</mat-icon>
+</button>
+
+<mat-menu #loggedOutMenu="matMenu">
+  <button mat-menu-item (click)="login()">Login</button>
+</mat-menu>
+
+<mat-menu #loggedInMenu="matMenu">
+  <button mat-menu-item routerLink="/profile">{{ user?.displayName || 'Profile' }}</button>
+  <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
